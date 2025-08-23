@@ -128,21 +128,34 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
     st.write(response.content)
 
     # CSS: Sidebar, Header, Footer & Buttons beim Drucken ausblenden
-    hide_streamlit_style = """
-        <style>
-            @media print {
-                /* Sidebar */
-                section[data-testid="stSidebar"] {display: none;}
-                /* Streamlit Header */
-                header[data-testid="stHeader"] {display: none;}
-                /* Footer ("Made with Streamlit") */
-                footer {display: none;}
-                /* Buttons */
-                button {display: none;}
-            }
-        </style>
+    # hide_streamlit_style = """
+    #     <style>
+    #         @media print {
+    #             /* Sidebar */
+    #             section[data-testid="stSidebar"] {display: none;}
+    #             /* Streamlit Header */
+    #             header[data-testid="stHeader"] {display: none;}
+    #             /* Footer ("Made with Streamlit") */
+    #             footer {display: none;}
+    #             /* Buttons */
+    #             button {display: none;}
+    #         }
+    #     </style>
+    # """
+    # st.markdown(hide_streamlit_style, unsafe_allow_html=True) # header {display: none;}
+
+    custom_css = """
+    <style>
+        @media print {
+            section[data-testid="stSidebar"] {display: none !important;}
+            div[data-testid="stHeader"] {display: none !important;}
+            div[data-testid="stToolbar"] {display: none !important;}
+            footer {display: none !important;}
+            button {display: none !important;}
+        }
+    </style>
     """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True) # header {display: none;}
+    st.markdown(custom_css, unsafe_allow_html=True)
 
     #llm_response_to_doc(response.content)
 
