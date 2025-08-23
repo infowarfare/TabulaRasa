@@ -144,7 +144,7 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) # header {display: none;}
 
-    llm_response_to_doc(response.content)
+    #llm_response_to_doc(response.content)
 
 
 def main():
@@ -165,16 +165,6 @@ def main():
          with st.spinner("Generate table..."):
             generate_answer(cache_name, 3)
          st.success("Done!", icon="✅")
-         
-         if st.button("📄 Als PDF speichern / Drucken"):
-            components.html(
-            """
-            <script>
-                window.print();
-            </script>
-            """,
-            height=0,
-            )
         
        
 
