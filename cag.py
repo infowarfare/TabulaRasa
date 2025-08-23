@@ -96,7 +96,8 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
     #     answer_count = Counter(elements_found)
     #     most_consistent_answer, anzahl = answer_count.most_common(1)[0]
     #     factual_elements_count = most_consistent_answer
-        
+
+    # Die Prompt erhält eine Vorgabe, wie wieviele Sachverhaltselemente in den Dokumenten gefunden werden sollen. Es handelt sich hierbei um einen heuristischen Wert.     
     prompt = instruction_prompt(num_factual_elements=25)
     message = HumanMessage(content=prompt)
     response = llm.invoke([message])
