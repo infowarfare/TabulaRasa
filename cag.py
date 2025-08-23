@@ -80,23 +80,24 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
         model=model_name,
         cached_content=cache_name,
     )
-    factual_prompt = factual_elements_prompt()
-    
-    elements_found = []
-    factual_elements_count = 15 # default number
-    # Self-consistency
-    for i in range(number_of_responses):
-        count_message = HumanMessage(content=factual_prompt)
-        response = llm.invoke([count_message])
-        number_of_elements = int(response.content)
-        elements_found.append(number_of_elements)
 
-    if elements_found:
-        answer_count = Counter(elements_found)
-        most_consistent_answer, anzahl = answer_count.most_common(1)[0]
-        factual_elements_count = most_consistent_answer
+    # factual_prompt = factual_elements_prompt()
+    
+    # elements_found = []
+    # factual_elements_count = 15 # default number
+    # # Self-consistency
+    # for i in range(number_of_responses):
+    #     count_message = HumanMessage(content=factual_prompt)
+    #     response = llm.invoke([count_message])
+    #     number_of_elements = int(response.content)
+    #     elements_found.append(number_of_elements)
+
+    # if elements_found:
+    #     answer_count = Counter(elements_found)
+    #     most_consistent_answer, anzahl = answer_count.most_common(1)[0]
+    #     factual_elements_count = most_consistent_answer
         
-    prompt = instruction_prompt(factual_elements_count)
+    prompt = instruction_prompt(num_factual_elements=25)
     
         
     message = HumanMessage(content=prompt)

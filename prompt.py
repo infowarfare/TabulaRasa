@@ -33,7 +33,7 @@ def instruction_prompt(num_factual_elements: int) -> str:
     "#### Arbeitsschritte #### \n" \
     "{cot_instruction} \n\n" \
     "#### Anzahl der Sachverhaltselemente #### \n" \
-    "In der vorliegenden Dokumenten liegen insgesamt {num_factual_elements} Sachverhaltselemente vor. Diese Zahl an Elementen muss in der Relationstabelle vorkommen." 
+    "In den vorliegenden Dokumenten liegen mindestens {num_factual_elements} Sachverhaltselemente vor. Diese Zahl an Elementen muss mindestens in der Relationstabelle vorkommen." 
 
 
     persona = "Du bist ein Richter an einem deutschen Gericht. Du wirst mit Streitigkeiten die sich innerhalb des deutschen Zivilrechts bewegen betraut."
