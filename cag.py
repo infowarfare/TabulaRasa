@@ -8,6 +8,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
 from prompt import instruction_prompt
 from pathlib import Path
+from collections import Counter
 
 # folder for uploaded files
 file_path = "court_files"
@@ -49,13 +50,13 @@ def upload_files_to_cache(client) -> str:
                 """
             ),
             contents=contents,
-            ttl="30s",
+            ttl="300s",
         )
     )
 
     return cache.name
 
-def generate_answer(cache_name: str) -> str:
+def generate_answer(cache_name: str, number_of_responses: int) -> str:
 
     # prompt_template = """Erstelle aus den gegebenen Inhalten von Klage und Klageerwiderung eine Relationstabelle, wie sie im deutschen Zivilprozess von einem Richter erstellt wird.  
 
@@ -81,9 +82,21 @@ def generate_answer(cache_name: str) -> str:
         cached_content=cache_name,
     )
     message = HumanMessage(content=prompt)
-    response = llm.invoke([message])
 
-    st.write(response.content)
+    # Self-consistency
+    generated_answers = []
+    with st.spinner("Checking answers..."):
+        for i in range(number_of_responses):
+            response = llm.invoke([message])
+            generated_answers.append(response.content)
+    st.success("Done!")
+
+    # Prüfe Anzahl der generierten Antworten
+    if generated_answers:
+        answer_count = Counter(generated_answers)
+        most_consistent_answer, anzahl = answer_count.most_common(1)[0]
+        st.write(most_consistent_answer)
+        st.write(f"Diese Antwort erschien {anzahl} von {len(generated_answers)}")
 
 
 def main():
@@ -101,7 +114,7 @@ def main():
             if cache_name:
                 st.success("Files received!", icon="🗂️")
          with st.spinner("Generate table..."):
-            generate_answer(cache_name)
+            generate_answer(cache_name, 3)
          st.success("Done!", icon="✅")
         
        
