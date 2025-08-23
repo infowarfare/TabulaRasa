@@ -171,15 +171,19 @@ def main():
             client = genai.Client(api_key=api_key)
             if client:
                 assistant_message = st.success("Assistant ready!", icon="🙋🏻")
-                time.sleep(1)
+                time.sleep(3)
                 assistant_message.empty()
          with st.spinner("Sending files to Assistant..."):
             cache_name = upload_files_to_cache(client)
             if cache_name:
-                st.success("Files received!", icon="🗂️")
+                file_message = st.success("Files received!", icon="🗂️")
+                time.sleep(3)
+                file_message.empty()
          with st.spinner("Generate table..."):
             generate_answer(cache_name, 3)
-         st.success("Done!", icon="✅")
+            done_message = st.success("Done!", icon="✅")
+            time.sleep(3)
+            done_message.empty()
         
        
 
