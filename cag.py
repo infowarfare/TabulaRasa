@@ -28,7 +28,7 @@ def llm_response_to_doc(response: str) -> str:
         markdown_text = f.read()
 
     pdf = MarkdownPdf(toc_level=2, optimize=True)
-    pdf.add_section(markdown_text)
+    pdf.add_section(Section(markdown_text, paper_size="A4"))
 
     pdf.save('output.pdf')
 
