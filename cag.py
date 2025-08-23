@@ -129,6 +129,7 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
 def main():
     st.set_page_config("Chat PDF")
     st.header("Legal Assistant with Gemini ⚖️")
+    st.sidebar.image("images/tabula_rasa_logo.png", use_container_width=True)
 
     exec_button_clicked = st.button("Start Assistant", icon="▶")
     if exec_button_clicked:
