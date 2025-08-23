@@ -133,7 +133,7 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
                 /* Sidebar */
                 section[data-testid="stSidebar"] {display: none;}
                 /* Streamlit Header */
-                header {display: none;}
+                header[data-testid="stHeader"] {display: none;}
                 /* Footer ("Made with Streamlit") */
                 footer {display: none;}
                 /* Buttons */
@@ -141,8 +141,8 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
             }
         </style>
     """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-    
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True) # header {display: none;}
+
     llm_response_to_doc(response.content)
 
 
