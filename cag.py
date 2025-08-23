@@ -9,8 +9,7 @@ from langchain_core.messages import HumanMessage
 from prompt import instruction_prompt, factual_elements_prompt
 from pathlib import Path
 from collections import Counter
-import markdown
-import pypandoc
+from markdown_pdf import Section
 
 # folder for uploaded files
 file_path = "court_files"
@@ -28,8 +27,7 @@ def llm_response_to_doc(response: str) -> str:
     with open(file_name, "r", encoding="utf-8") as f:
         markdown_text = f.read()
 
-    output_file = "output.pdf"
-    pypandoc.convert_text(markdown_text, "pdf", format="md", outputfile=output_file, extra_args=["--standalone"])
+    
 
     # html_text = markdown.markdown(markdown_text)
 
