@@ -9,7 +9,9 @@ from langchain_core.messages import HumanMessage
 from prompt import instruction_prompt, factual_elements_prompt
 from pathlib import Path
 from collections import Counter
-from markdown_pdf import Section, MarkdownPdf
+#from markdown_pdf import Section, MarkdownPdf
+from pyhtml2pdf import converter
+import markdown
 
 # folder for uploaded files
 file_path = "court_files"
@@ -20,7 +22,7 @@ api_key=os.getenv("GOOGLE_API_KEY")
 
 def llm_response_to_doc(response: str) -> str:
     file_name = "llm_response.md"
-    # css_style = "table {border-collapse: collapse;} table, th, td {border: 1px solid black;}"
+    #css_style = "table {border-collapse: collapse;} table, th, td {border: 1px solid black;}"
 
     with open(file_name, "w", encoding="utf-8") as file:
         file.write(response)
@@ -29,10 +31,17 @@ def llm_response_to_doc(response: str) -> str:
     with open(file_name, "r", encoding="utf-8") as f:
         markdown_text = f.read()
 
-    pdf = MarkdownPdf(toc_level=2, optimize=True)
-    pdf.add_section(Section(markdown_text, paper_size="A4-L"))
+    html = markdown.markdown(markdown_text)
+    with open('index.html', "w", encoding='utf-8') as f:
+        f.write(html)
+        
+    path = os.path.abspath('index.html')
+    converter.convert(f'file:///{path}', 'sample.pdf')
 
-    pdf.save('output.pdf')
+    # pdf = MarkdownPdf(toc_level=2, optimize=True)
+    # pdf.add_section(Section(markdown_text, paper_size="A4-L"), user_css=)
+
+    # pdf.save('output.pdf')
 
     
 
