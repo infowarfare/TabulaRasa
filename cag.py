@@ -118,6 +118,7 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
     response = llm.invoke([message])
     
     st.write(response.content)
+    llm_response_to_doc(response.content)
 
 
 def main():
