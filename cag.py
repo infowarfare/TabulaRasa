@@ -150,7 +150,7 @@ def main():
             st.download_button(
                 label="Download PDF",
                 data=file,
-                file_name="my_document.pdf",
+                file_name="relations_tabelle.pdf",
                 mime="application/pdf"
             )
         
