@@ -138,7 +138,7 @@ def main():
          with st.spinner("Start assistant...", show_time=True):
             client = genai.Client(api_key=api_key)
             if client:
-                st.success("Agent ready!", icon="🙋🏻")
+                st.success("Assistant ready!", icon="🙋🏻")
          with st.spinner("Sending files to Assistant..."):
             cache_name = upload_files_to_cache(client)
             if cache_name:
