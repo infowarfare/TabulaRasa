@@ -9,6 +9,9 @@ from langchain_core.messages import HumanMessage
 from prompt import instruction_prompt, factual_elements_prompt
 from pathlib import Path
 from collections import Counter
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.lib.styles import getSampleStyleSheet
 
 # folder for uploaded files
 file_path = "court_files"
@@ -16,6 +19,18 @@ file_path = "court_files"
 # Environment variables
 load_dotenv(dotenv_path=".env")
 api_key=os.getenv("GOOGLE_API_KEY")
+
+def llm_response_to_doc(response: str) -> str:
+    pdf_filename = "llm_response.pdf"
+    story = []
+
+    styles = getSampleStyleSheet()
+    paragraph = Paragraph(response, styles['Normal'])
+    story.append(paragraph)
+
+    doc = SimpleDocTemplate(pdf_filename, pagesize=letter)
+    doc.build(story)
+
 
 def upload_files_to_cache(client) -> str:
 
@@ -101,6 +116,7 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
     prompt = instruction_prompt(num_factual_elements=25)
     message = HumanMessage(content=prompt)
     response = llm.invoke([message])
+    
     st.write(response.content)
 
 
