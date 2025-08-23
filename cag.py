@@ -12,6 +12,8 @@ from collections import Counter
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
+import markdown
+from weasyprint import HTML
 
 # folder for uploaded files
 file_path = "court_files"
@@ -24,6 +26,17 @@ def llm_response_to_doc(response: str) -> str:
     file_name = "llm_response.md"
     with open(file_name, "w", encoding="utf-8") as file:
         file.write(response)
+
+    # Markdown to HTML
+    with open(file_name, "r", encoding="utf-8") as f:
+        markdown_text = f.read()
+
+    html_text = markdown.markdown(markdown_text)
+
+    # HTML to PDF
+    HTML(string=html_text).write_pdf("output.pdf")
+
+    
 
 
 def upload_files_to_cache(client) -> str:
