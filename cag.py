@@ -9,7 +9,7 @@ from langchain_core.messages import HumanMessage
 from prompt import instruction_prompt, factual_elements_prompt
 from pathlib import Path
 from collections import Counter
-from markdown_pdf import Section
+from markdown_pdf import Section, MarkdownPdf
 
 # folder for uploaded files
 file_path = "court_files"
@@ -26,6 +26,11 @@ def llm_response_to_doc(response: str) -> str:
     # Markdown to HTML
     with open(file_name, "r", encoding="utf-8") as f:
         markdown_text = f.read()
+
+    pdf = MarkdownPdf(toc_level=2, optimize=True)
+    pdf.add_section(markdown_text)
+
+    pdf.save('output.pdf')
 
     
 
