@@ -125,6 +125,24 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
     response = llm.invoke([message])
     
     st.write(response.content)
+
+    # CSS: Sidebar, Header, Footer & Buttons beim Drucken ausblenden
+    hide_streamlit_style = """
+        <style>
+            @media print {
+                /* Sidebar */
+                section[data-testid="stSidebar"] {display: none;}
+                /* Streamlit Header */
+                header {display: none;}
+                /* Footer ("Made with Streamlit") */
+                footer {display: none;}
+                /* Buttons */
+                button {display: none;}
+            }
+        </style>
+    """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+    
     llm_response_to_doc(response.content)
 
 
