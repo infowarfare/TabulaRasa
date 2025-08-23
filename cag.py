@@ -83,7 +83,7 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
     factual_prompt = factual_elements_prompt()
     
     elements_found = []
-    
+    factual_elements_count = 15 # default number
     # Self-consistency
     for i in range(number_of_responses):
         count_message = HumanMessage(content=factual_prompt)
@@ -94,8 +94,9 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
     if elements_found:
         answer_count = Counter(elements_found)
         most_consistent_answer, anzahl = answer_count.most_common(1)[0]
+        factual_elements_count = most_consistent_answer
         
-    prompt = instruction_prompt(most_consistent_answer)
+    prompt = instruction_prompt(factual_elements_count)
     
         
     message = HumanMessage(content=prompt)
