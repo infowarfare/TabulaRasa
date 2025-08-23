@@ -99,6 +99,8 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
     llm = ChatGoogleGenerativeAI(
         model=model_name,
         cached_content=cache_name,
+        top_k=1,
+        temperature=0 # nahe zu identische Ausgabe
     )
 
     # factual_prompt = factual_elements_prompt()
