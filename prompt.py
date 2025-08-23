@@ -60,5 +60,3 @@ def instruction_prompt(num_factual_elements: int) -> str:
                 "num_factual_elements": num_factual_elements})
 
     return output.to_string()
-
-print(instruction_prompt())
