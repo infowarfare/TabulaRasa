@@ -98,8 +98,6 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
     #     factual_elements_count = most_consistent_answer
         
     prompt = instruction_prompt(num_factual_elements=25)
-    
-        
     message = HumanMessage(content=prompt)
     response = llm.invoke([message])
     st.write(response.content)
