@@ -20,7 +20,7 @@ api_key=os.getenv("GOOGLE_API_KEY")
 
 def llm_response_to_doc(response: str) -> str:
     file_name = "llm_response.md"
-    css_style = "table {border-collapse: collapse;} table, th, td {border: 1px solid black;}"
+    css_style = "table {border-collapse: collapse;} th, td {border: 1px solid black;}"
 
     with open(file_name, "w", encoding="utf-8") as file:
         file.write(response)
