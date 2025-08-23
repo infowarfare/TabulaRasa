@@ -172,7 +172,7 @@ def main():
             if client:
                 assistant_message = st.success("Assistant ready!", icon="🙋🏻")
                 time.sleep(1)
-                assistant_message.clear()
+                assistant_message.empty()
          with st.spinner("Sending files to Assistant..."):
             cache_name = upload_files_to_cache(client)
             if cache_name:
