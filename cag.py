@@ -74,8 +74,6 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
 
     #prompt.save("base_prompt.json")
 
-    prompt = instruction_prompt()
-
     model_name = "gemini-2.5-flash-lite"
     # Query with LangChain
     llm = ChatGoogleGenerativeAI(
