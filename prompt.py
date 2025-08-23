@@ -1,6 +1,11 @@
 from langchain.prompts import PromptTemplate
 
-def instruction_prompt() -> str:
+def factual_elements_prompt() -> str:
+
+    prompt_template = """Zähle die Sachverhaltselemente die in Dokument vorkommen. Gebe diese Zahl als einzige Ganzzahl aus"""
+    return prompt_template
+
+def instruction_prompt(num_factual_elements: int) -> str:
 
     prompt_template = "#### Persona #### \n" \
     "{persona}" \
@@ -17,7 +22,9 @@ def instruction_prompt() -> str:
     "#### Regeln #### \n" \
     "{constraints} \n\n" \
     "#### Arbeitsschritte #### \n" \
-    "{cot_instruction} \n\n"
+    "{cot_instruction} \n\n" \
+    "#### Anzahl der Sachverhaltselemente #### \n" \
+    "In der vorliegenden Dokumenten liegen insgesamt {num_factual_elements} Sachverhaltselemente vor. Diese Zahl an Elementen muss in der Relationstabelle vorkommen." 
 
 
     persona = "Du bist ein Richter an einem deutschen Gericht. Du wirst mit Streitigkeiten die sich innerhalb des deutschen Zivilrechts bewegen betraut."
@@ -49,7 +56,8 @@ def instruction_prompt() -> str:
                 "audience": audience,
                 "tone": tone,
                 "constraints": constraints,
-                "cot_instruction": cot_instruction})
+                "cot_instruction": cot_instruction,
+                "num_factual_elements": num_factual_elements})
 
     return output.to_string()
 

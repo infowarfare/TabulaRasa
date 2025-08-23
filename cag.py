@@ -6,7 +6,7 @@ from google.genai.types import CreateCachedContentConfig, Content, Part
 import time
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
-from prompt import instruction_prompt
+from prompt import instruction_prompt, factual_elements_prompt
 from pathlib import Path
 from collections import Counter
 
@@ -55,6 +55,7 @@ def upload_files_to_cache(client) -> str:
     )
 
     return cache.name
+    
 
 def generate_answer(cache_name: str, number_of_responses: int) -> str:
 
@@ -69,11 +70,11 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
 
     # Ziel ist eine neutrale, strukturierte Übersicht, die als Grundlage für den Tatbestand des Urteils oder das elektronische Basisdokument dienen könnte."""
 
-    prompt = instruction_prompt()
-
     #prompt = PromptTemplate(template=prompt_template)
 
     #prompt.save("base_prompt.json")
+
+    prompt = instruction_prompt()
 
     model_name = "gemini-2.5-flash-lite"
     # Query with LangChain
@@ -81,22 +82,27 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
         model=model_name,
         cached_content=cache_name,
     )
-    message = HumanMessage(content=prompt)
-
+    factual_prompt = factual_elements_prompt()
+    
+    elements_found = []
+    
     # Self-consistency
-    generated_answers = []
-    with st.spinner("Checking answers..."):
-        for i in range(number_of_responses):
-            response = llm.invoke([message])
-            generated_answers.append(response.content)
-    st.success("Done!")
+    for i in range(number_of_responses):
+        count_message = HumanMessage(content=factual_prompt)
+        response = llm.invoke([count_message])
+        number_of_elements = int(response.content)
+        elements_found.append(number_of_elements)
 
-    # Prüfe Anzahl der generierten Antworten
-    if generated_answers:
-        answer_count = Counter(generated_answers)
+    if elements_found:
+        answer_count = Counter(elements_found)
         most_consistent_answer, anzahl = answer_count.most_common(1)[0]
-        st.write(most_consistent_answer)
-        st.write(f"Diese Antwort erschien {anzahl} von {len(generated_answers)}")
+        
+    prompt = instruction_prompt(most_consistent_answer)
+    
+        
+    message = HumanMessage(content=prompt)
+    response = llm.invoke([message])
+    st.write(response.content)
 
 
 def main():
