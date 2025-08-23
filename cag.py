@@ -9,9 +9,6 @@ from langchain_core.messages import HumanMessage
 from prompt import instruction_prompt, factual_elements_prompt
 from pathlib import Path
 from collections import Counter
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph
-from reportlab.lib.styles import getSampleStyleSheet
 import markdown
 from weasyprint import HTML
 
@@ -31,10 +28,10 @@ def llm_response_to_doc(response: str) -> str:
     with open(file_name, "r", encoding="utf-8") as f:
         markdown_text = f.read()
 
-    html_text = markdown.markdown(markdown_text)
+    # html_text = markdown.markdown(markdown_text)
 
     # HTML to PDF
-    HTML(string=html_text).write_pdf("output.pdf")
+    #HTML(string=html_text).write_pdf("output.pdf")
 
     
 
