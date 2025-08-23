@@ -21,15 +21,9 @@ load_dotenv(dotenv_path=".env")
 api_key=os.getenv("GOOGLE_API_KEY")
 
 def llm_response_to_doc(response: str) -> str:
-    pdf_filename = "llm_response.pdf"
-    story = []
-
-    styles = getSampleStyleSheet()
-    paragraph = Paragraph(response, styles['Normal'])
-    story.append(paragraph)
-
-    doc = SimpleDocTemplate(pdf_filename, pagesize=letter)
-    doc.build(story)
+    file_name = "llm_response.md"
+    with open(file_name, "w", encoding="utf-8") as file:
+        file.write(response)
 
 
 def upload_files_to_cache(client) -> str:
