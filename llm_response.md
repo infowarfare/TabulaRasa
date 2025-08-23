@@ -1,40 +1,52 @@
 | Nr. | Sachverhaltselement | Kläger-Vortrag | Beklagten-Vortrag | Beweismittel-Kläger | Beweismittel-Beklagter |
 |---|---|---|---|---|---|
-| 1 | Anmeldezeitpunkt und -weg für Betreuungsplatz | Antrag auf Betreuungsplatz im Juli 2018 über Online-Portal „Little Bird“ für Sohn Ben, geboren am 28.09.2017. | Antrag auf Betreuungsplatz am 03.07.2018 über Online-Plattform „Little Bird“ beim Markt Wendelstein im Landkreis des Beklagten. | Online-Portal „Little Bird“ | Übersicht der Vormerkungen Stand: 24.06.2019 (Anlage B 2) |
-| 2 | Behauptete Nichtbereitstellung eines Betreuungsplatzes zum gewünschten Zeitpunkt | Kein Angebot eines Betreuungsplatzes nach Antragstellung. | - | - | - |
-| 3 | Kontaktaufnahme mit der zuständigen Stelle | Kontaktaufnahme mit Sachbearbeiter der Wohnortgemeinde per E-Mail am 26.02.2019. | - | E-Mail vom 26.02.2019 | - |
-| 4 | Antwort der zuständigen Stelle auf Kontaktaufnahme | E-Mail blieb unbeantwortet. | Bestreitet, dass die E-Mail unbeantwortet blieb. | - | Schreiben vom 06.03.2019 (Anlage K1) |
-| 5 | Ankündigung einer Rückmeldung | Mitteilung vom Bürgermeister, dass Mitte Mai 2019 eine Rückmeldung erfolgen solle. | - | - | - |
-| 6 | Tatsächliche Rückmeldung | Keine Rückmeldung erfolgte. | - | - | - |
-| 7 | Erneute Kontaktaufnahme der Klägerin | Erneute Kontaktaufnahme per E-Mail am 26.05.2019 wegen Dringlichkeit. | E-Mail vom 26.05.2019 | E-Mail vom 26.05.2019 (Anlage B 5) | E-Mail vom 26.05.2019 (Anlage B 5) |
-| 8 | Grund für erneute Kontaktaufnahme | Keine Rückmeldung seitens der Kindertageseinrichtung / Tagespflegeperson erhalten. | - | - | - |
-| 9 | Beauftragung eines Rechtsanwalts | Beauftragung des Rechtsanwalts am 04.06.2019 zur gerichtlichen Geltendmachung. | Beauftragung des Bevollmächtigten am 04.06.2019. | - | - |
-| 10 | Angebot eines Betreuungsplatzes | Angebot eines Betreuungsplatzes zum 01.12.2019. | Angebot eines Betreuungsplatzes zum 01.12.2019. | - | Schreiben des Arbeitgebers vom 27.05.2019 (Anlage B 6) |
-| 11 | Rücknahme der gerichtlichen Geltendmachung | Abstandnahme von gerichtlicher Geltendmachung des Anspruchs auf Betreuungsplatz, da dieser voraussichtlich nicht rechtzeitig Abhilfe geschaffen hätte. | - | - | - |
-| 12 | Notwendigkeit der Kinderbetreuung durch die Klägerin | Klägerin muss Kind selbst betreuen, da keine andere Betreuungsmöglichkeit zur Verfügung steht. | Behauptung der Klägerin, dass der Vater des Kindes ebenfalls voll berufstätig sei, wird bestritten. Es wird bestritten, dass es dem Vater nicht gleichwohl möglich gewesen ist, für die Zeit der Eingewöhnungsphase entsprechenden Urlaub oder Elternzeit zu nehmen. | - | - |
-| 13 | Verschiebung der Rückkehr in den Beruf | Geplante Rückkehr in den Beruf auf Januar 2020 verschoben. | Bestreitet, dass die Klägerin tatsächlich die Elternzeit verlängert hat. Bestreitet, dass die Elternzeit bis zum 31.12.2019 gegangen wäre. | - | - |
-| 14 | Brutto-Monatsgehalt der Klägerin | 3.075,91 Euro. | - | Verdienstbescheinigungen von Juni 2017, Juli 2017 und November 2016 (Anlage K2) | - |
-| 15 | Entgangenes Einkommen im November 2019 | Entgangene Zahlung von insgesamt 6.002,48 Euro (inkl. Sonderzahlung). | Bestreitet, dass der Klägerin auf Grund der fortwährenden Elternzeit die Sonderzahlung in voller Höhe zusteht. | - | - |
-| 16 | Aufforderung zur Anerkennung des Schadens | Aufforderung zur Anerkennung des Schadens durch Verdienstausfall per Schreiben vom 21.06.2019. | - | Schreiben des Unterzeichners vom 21.06.2019 (Anlage K3) | - |
-| 17 | Ablehnung der Schadensanerkennung | Ablehnung der Anerkennung des Schadens durch Schreiben vom 12.07.2019. | Ablehnung des geltend gemachten Schadensersatzanspruchs mit Schreiben vom 12.07.2019. | - | Schreiben des Beklagten vom 12.07.2019 (Anlage K4) |
-| 18 | Kosten der außergerichtlichen Rechtsverfolgung | Kosten in Höhe von 958,19 Euro. | - | Vorschussrechnung vom 29. August 2019 (Anlage K5) | - |
-| 19 | Begründung des Schadensersatzanspruchs (Klage) | Anspruch auf Ersatz des Verdienstes gemäß § 839 BGB i.V.m. Art. 34 GG durch nicht rechtzeitigen Nachweis eines Kitaplatzes. | - | - | - |
-| 20 | Amtspflichtverletzung des Beklagten | Rechtswidrige und schuldhafte Nichterfüllung der Amtspflicht zur Bereitstellung eines Kitaplatzes gemäß § 24 Abs. 2 SGB VIII. | - | - | - |
-| 21 | Schutzwirkung der Norm | Drittschutz der Norm aus Gesetz, da Tageseinrichtungen Eltern bei Vereinbarkeit von Erwerbstätigkeit und Kindererziehung unterstützen sollen. | - | - | - |
-| 22 | Rechtswidrigkeit der Pflichtverletzung | Verstoß gegen gesetzlich formulierten Anspruch des Kindes durch Nichtbereitstellung des Platzes, trotz rechtzeitigem Antrag. | - | - | - |
-| 23 | Schuldhaftigkeit der Pflichtverletzung | Beklagtem war bekannt, dass Nichtbereitstellung des Kitaplatzes zur Verletzung der Amtspflicht führt. | - | - | - |
-| 24 | Verschulden der zuständigen Bediensteten | Nichterfüllung des gesetzlich zustehenden Anspruchs auf Förderung begründet Verschulden. Träger der öffentlichen Jugendhilfe hat absolute Gewährleistungspflicht. | - | - | - |
-| 25 | Zeitraum des geltend gemachten Verdienstausfalls | 01.09.2019 bis 31.12.2019. | Bestreitet, dass die Klägerin zum 01.09.2019 wieder ihre Arbeit aufgenommen hätte, da Elternzeit bis zum 27.09.2019 ging. Frühester Eintrittstermin 28.09.2019. Bestreitet, dass Elternzeit bis 31.12.2019 ging. Rechnerisches Ende 27.12.2019. | - | - |
-| 26 | Höhe des geltend gemachten Schadensersatzes | 15.230,21 Euro (zwei volle Monatsbruttogehälter). | Bestreitet die Höhe der Schadensberechnung für September und Oktober 2019. Bestreitet, dass die Klägerin zum 28.09.2019 eine Vollzeitstelle angetreten wäre, da dies bei zwei voll berufstätigen Elternteilen unüblich und nicht praktikabel sei. | - | - |
-| 27 | Anspruch auf Ersatz außergerichtlicher Rechtsverfolgungskosten | 958,19 Euro. | Kein Anspruch auf Ersatz der außergerichtlichen Rechtsverfolgungskosten. | Anlage K6 | - |
-| 28 | Anspruchsvoraussetzungen | - | Es kann dahingestellt bleiben, ob die Anspruchsvoraussetzungen überhaupt vorliegen. | - | - |
-| 29 | Ausschluss nach § 839 Abs. 3 BGB | - | Anspruch auf Schadensersatz wegen § 839 Abs. 3 BGB ausgeschlossen, da Klägerin es unterlassen hat, Schaden durch Gebrauch eines Rechtsmittels abzuwenden. | - | - |
-| 30 | Einstweiliges Rechtsschutzverfahren | - | Erhebung eines Antrags nach § 123 VwGO gegen Beklagten hätte zur Schadensvermeidung geführt. Antrag war vollumfänglich begründet und der Klägerin zumutbar. Hinweis in Klage auf mangelnde Rechtzeitigkeit ist Schutzbehauptung. Klägerin war mit Betreuungsplatz ab 01.12.2019 zufrieden. | - | Herr Marco Ha als Zeuge, zu laden über den Beklagten; Statistik der Bayerischen Verwaltungsgerichtsbarkeit (Anlage B 16) |
-| 31 | Mitverschulden der Klägerin | - | Klägerin hat gegen ihre Schadensminderungspflicht nach § 254 BGB verstoßen. Hätte Klägerin Gespräch angenommen und Angebot Tagesmutter akzeptiert, wäre kein Schaden entstanden. Klägerin hat sich vehement gegen alternative Betreuung gewehrt und Angebote ausgeschlagen. | - | - |
-| 32 | Berufung auf Frist des Arbeitgebers | Klägerin kann sich nicht auf verbindliche Frist des Arbeitgebers bis 05.06.2019 berufen, da diese nicht bestand. | - | E-Mail vom 25.06.2019 (Anlage B 10) | Schreiben des Arbeitgebers vom 27.05.2019 (Anlage B 6) |
-| 33 | Kontaktaufnahme mit Beklagtem als zuständigem Träger | Kontaktaufnahme mit Beklagtem als zuständigem Träger erfolgte nicht. | Kontaktaufnahme mit Beklagten als zuständigen Träger erfolgte nicht. | - | - |
-| 34 | Einholung gerichtlichen Eilrechtsschutzes | Klägerin hat keinen gerichtlichen Eilrechtsschutz beantragt. | Klägerin hat keinen gerichtlichen Eilrechtsschutz beantragt. | - | - |
-| 35 | Angebot eines persönlichen Gesprächs zur Lösungsfindung | - | Beklagter hat Klägerin am 17.07.2019 ein Gespräch zur Lösungsfindung angeboten und Betreuungsalternativen für Übergangszeit aufgezeigt. | - | Schreiben vom 17.07.2019 (Anlage B 17) |
-| 36 | Annahme des Gesprächsangebots | Klägerin hat Angebot abgelehnt. | Klägerin hat Angebot abgelehnt. | E-Mail vom 04.08.2019 (Anlage B 18) | E-Mail vom 04.08.2019 (Anlage B 18) |
-| 37 | Bemessung der Schadenshöhe | Verschweigt, ob und in welcher Höhe Lohnersatzleistungen nach BEEG bzw. ZBFS gezahlt werden. | Verschweigt, ob und in welcher Höhe Lohnersatzleistungen nach dem BEEG bzw. nach dem ZBFS gezahlt werden. | - | - |
-| 38 | Anrechnung von Ansprüchen aus Elterngeld | Hat etwaige ihr zustehende Ansprüche aus dem Elterngeld nicht schadensmindernd angerechnet. | Hat etwaige ihr zustehende Ansprüche aus dem Elterngeld nicht schadensmindernd angerechnet. | - | - |
+| 1 | Anmeldezeitpunkt Betreuungsplatz | Juli 2018 | 03.07.2018 | - | Anlage B 2 |
+| 2 | Anmeldeplattform | Online-Portal „Little Bird“ | Onlineplattform „Little Bird“ | - | - |
+| 3 | Anmeldende Gemeinde | Markt Wendelstein | Markt Wendelstein | - | - |
+| 4 | Betreuungsbedarf für Sohn Ben | Ja | Ja | - | - |
+| 5 | Sohn Ben Geburtsdatum | 28. September 2017 | 28. September 2017 | - | - |
+| 6 | Anzahl der Anmeldungen | Acht Anmeldungen | Acht Anmeldungen | Anlage B 2 | Anlage B 2 |
+| 7 | Liste der Betreuungsstätten | Freie Waldorfschule (Krippe), AWO Kindertagesstätte (Krippe), Kath. Kinder(t)raum (Krippe), Evang. Kindergarten (Krippe), Kath. Kinderhaus (Krippe), Evang. Kindergarten Arche (Krippe), Sternen-Kinder-Haus (Krippe) | - | Anlage B 2 | - |
+| 8 | Deaktivierung der Anmeldung für „Evang. Kindergarten“ | Ja, mangels Interesses | - | Anlage B 2 | - |
+| 9 | Grund für Deaktivierung | Keine Rückmeldung seitens der Kindertageseinrichtung / Tagespflegeperson erhalten | - | Anlage B 2 | - |
+| 10 | Nachfrage bei Kinderbetreuungsstätte | Ja | - | - | - |
+| 11 | Kontaktaufnahme mit Gemeinde wegen Betreuungsplatz | 26. Februar 2019 per E-Mail an Sachbearbeiter | - | Anlage K1 (Nichtbeantwortung der E-Mail durch Gemeinde wird bestritten) | Anlage K1 (Schreiben vom 06.03.2019) |
+| 12 | Reaktion der Gemeinde auf Anfrage | E-Mail blieb unbeantwortet | Es wird bestritten, dass die E-Mail unbeantwortet blieb | Anlage K1 | Anlage K1 |
+| 13 | Mitteilung des Bürgermeisters | Rückmeldung Mitte Mai 2019 sollte erfolgen | - | - | - |
+| 14 | Tatsächliche Rückmeldung der Gemeinde | Keine Rückmeldung | - | - | - |
+| 15 | Erneute Kontaktaufnahme der Klägerin | 26. Mai 2019 per E-Mail | E-Mail vom 26.05.2019 | Anlage B 5 | Anlage B 5 |
+| 16 | Grund für erneute Kontaktaufnahme | Dringlichkeit des Nachweises eines Betreuungsplatzes | - | Anlage B 5 | - |
+| 17 | Information über Vergabeprozess | Vergabeprozess erst Mitte Mai endgültig abgeschlossen | Vergabeprozess erst Mitte Mai endgültig abgeschlossen | - | - |
+| 18 | Beauftragung Rechtsanwalt | 04. Juni 2019 | - | - | - |
+| 19 | Angebot Betreuungsplatz | 05. Juni 2019 | 05.06.2019 | - | Anlage B 7 (Zuweisung an Betreuungsplatz für Sohn der Klägerin) |
+| 20 | Datum Betreuungsbeginn | 01. Dezember 2019 | 01.12.2019 | - | - |
+| 21 | Abstand von gerichtlicher Geltendmachung | Ja | - | - | - |
+| 22 | Grund für Abstand von gerichtlicher Geltendmachung | Anspruch auf Betreuungsplatz, da dieser aller Voraussicht nach nicht rechtzeitig Abhilfe gebracht hätte | - | - | - |
+| 23 | Notwendigkeit der Selbstbetreuung | Ja | - | - | - |
+| 24 | Verschiebung der Rückkehr in den Beruf | Januar 2020 | - | - | - |
+| 25 | Brutto-Monatsgehalt der Klägerin | 3.075,91 Euro | - | Anlage K2 | - |
+| 26 | Entgangene Sonderzahlung (November 2019) | 6.002,48 Euro | - | Anlage K2 | - |
+| 27 | Aufforderung zur Anerkennung des Schadens | 21. Juni 2019 | - | Anlage K3 | - |
+| 28 | Ablehnung der Anerkennung des Schadens | - | 12. Juli 2019 | - | Anlage K4 |
+| 29 | Außergerichtliche Rechtsanwaltskosten | 958,19 Euro | - | Anlage K5 | - |
+| 30 | Rechtsgrundlage Schadensersatzanspruch | § 839 BGB i.V.m. Art. 34 GG | Art. 34 GG i. V. m. § 839 BGB | - | - |
+| 31 | Amtspflicht des Beklagten | Bereitstellung eines Kitaplatzes | Amtspflicht zur Bereitstellung eines Kitaplatzes | § 24 Abs. 2 SGB VIII | § 24 Abs. 2 SGB VIII |
+| 32 | Verletzung der Amtspflicht | Ja, durch Nichtbereitstellung des Kitaplatzes | Ja, durch Nichtbereitstellung des Kitaplatzes | - | - |
+| 33 | Schuldhafte Verletzung der Amtspflicht | Ja | Ja | - | - |
+| 34 | Verschulden der Bediensteten des Beklagten | Ja | Ja | - | - |
+| 35 | Anspruch auf Förderung nicht erfüllt | Ja | - | - | - |
+| 36 | Ablehnung der Forderung durch Beklagten | - | Mit Schreiben vom 12.07.2019 | - | Anlage B 15 |
+| 37 | Zumutbarkeit einstweiligen Rechtsschutzes | - | Ja, da Kenntnis über Nichtnachkommen des Betreuungsbedarfs zum 01.09.2019 | - | § 123 VwGO |
+| 38 | Kenntnis der Klägerin über Nichtnachkommen des Betreuungsbedarfs | Ab Mitte Mai 2019 | - | - | - |
+| 39 | Kenntnis der Klägerin über Betreuungsplatz zum 01.12.2019 | Ab Anfang Juni 2019 | - | - | - |
+| 40 | Möglichkeit der Inanspruchnahme von Rechtsschutz | Ja | Ja | - | - |
+| 41 | Antrag auf einstweiligen Rechtsschutz durch Klägerin | Nein | Nein | - | - |
+| 42 | Begründung der Klägerin für Nichtbeantragung von Rechtsschutz | Rechtsschutz hätte aller Voraussicht nach nicht rechtzeitig Abhilfe gebracht | - | - | - |
+| 43 | Zufriedenheit mit Betreuungsplatz ab 01.12.2019 | Ja | - | - | - |
+| 44 | Schadensminderungspflicht der Klägerin | - | Ja, Verstoß gegen § 254 BGB | - | - |
+| 45 | Annahme des Gesprächsangebots des Beklagten | - | Nein, abgelehnt | - | Anlage B 18 |
+| 46 | Annahme des Angebots einer Tagesmutter | - | Nein, abgelehnt | - | - |
+| 47 | Verbindliche Zusage für Arbeitszeit nach Elternzeit | - | Bestritten, dass Arbeitgeber eine verbindliche Frist gesetzt hat | - | Anlage B 6 |
+| 48 | Anspruch auf Ersatz außergerichtlicher Rechtsverfolgungskosten | Ja | - | Anlage K5 | - |
+| 49 | Ausschluss des Anspruchs wegen § 839 Abs. 3 BGB | - | Ja | - | - |
+| 50 | Mitverschulden der Klägerin | - | Ja | - | - |
