@@ -2,7 +2,16 @@ from langchain.prompts import PromptTemplate
 
 def factual_elements_prompt() -> str:
 
-    prompt_template = """Zähle die Sachverhaltselemente die in Dokument vorkommen. Gebe diese Zahl als einzige Ganzzahl aus"""
+    prompt_template = """Zähle die Sachverhaltselemente die in Dokument vorkommen die für die Erstellung einer Relationstabelle erforderlich sind. 
+    Die Erstellung einer Relationstabelle erfolgt durch folgende Arbeitsschritte und denke diese Stück für Stück durch:
+    1. Lies zunächst beide Dokumente (Klage und Klageerwiderung) vollständig.
+
+    2. Extrahiere die einzelnen, strittigen oder übereinstimmenden Sachverhaltselemente. Konzentriere dich auf die relevanten Sachverhaltselemente. Nicht jeder Nebensatz in der Klage oder Klageerwiderung ist für die Entscheidung von Bedeutung.
+    
+    3. Zähle die Sachverhaltselemente
+    
+    4. Gebe die Anzahl der Sachverhaltselemente nur und ausschließlich als Ganzzahl aus"""
+
     return prompt_template
 
 def instruction_prompt(num_factual_elements: int) -> str:
