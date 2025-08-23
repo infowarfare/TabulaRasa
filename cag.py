@@ -12,6 +12,7 @@ from collections import Counter
 from markdown_pdf import Section, MarkdownPdf
 from pyhtml2pdf import converter
 import markdown
+import streamlit.components.v1 as components
 
 # folder for uploaded files
 file_path = "court_files"
@@ -164,12 +165,15 @@ def main():
          with st.spinner("Generate table..."):
             generate_answer(cache_name, 3)
          st.success("Done!", icon="✅")
-         with open('output.pdf', "rb") as file:
-            st.download_button(
-                label="Download PDF",
-                data=file,
-                file_name="relations_tabelle.pdf",
-                mime="application/pdf"
+         
+         if st.button("📄 Als PDF speichern / Drucken"):
+            components.html(
+            """
+            <script>
+                window.print();
+            </script>
+            """,
+            height=0,
             )
         
        
