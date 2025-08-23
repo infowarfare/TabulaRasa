@@ -143,6 +143,13 @@ def main():
          with st.spinner("Generate table..."):
             generate_answer(cache_name, 3)
          st.success("Done!", icon="✅")
+         with open('output.pdf', "rb") as file:
+            st.download_button(
+                label="Download PDF",
+                data=file,
+                file_name="my_document.pdf",
+                mime="application/pdf"
+            )
         
        
 
