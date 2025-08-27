@@ -142,3 +142,6 @@ websockets==15.0.1
 yarl==1.20.1
 zipp==3.23.0
 zstandard==0.24.0
+markdownpdf==0.0.6
+pythml==0.1.2
+markdown==3.4.4
