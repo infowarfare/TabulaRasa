@@ -1,19 +1,5 @@
 from langchain.prompts import PromptTemplate
 
-def factual_elements_prompt() -> str:
-
-    prompt_template = """Zähle die Sachverhaltselemente die in Dokument vorkommen die für die Erstellung einer Relationstabelle erforderlich sind. 
-    Die Erstellung einer Relationstabelle erfolgt durch folgende Arbeitsschritte und denke diese Stück für Stück durch:
-    1. Lies zunächst beide Dokumente (Klage und Klageerwiderung) vollständig.
-
-    2. Extrahiere die einzelnen, strittigen oder übereinstimmenden Sachverhaltselemente. Konzentriere dich auf die relevanten Sachverhaltselemente. Nicht jeder Nebensatz in der Klage oder Klageerwiderung ist für die Entscheidung von Bedeutung.
-    
-    3. Zähle die Sachverhaltselemente
-    
-    4. Gebe die Anzahl der Sachverhaltselemente nur und ausschließlich als Ganzzahl aus"""
-
-    return prompt_template
-
 def instruction_prompt(num_factual_elements: int) -> str:
 
     prompt_template = "#### Persona #### \n" \
@@ -32,6 +18,9 @@ def instruction_prompt(num_factual_elements: int) -> str:
     "{constraints} \n\n" \
     "#### Arbeitsschritte #### \n" \
     "{cot_instruction} \n\n" \
+    "#### Beispiel #### \n" \
+    "Wie das Basisdokument auszusehen hat unter Beibehaltung der Formatierung siehst du an dem Folgenden Beispiel" \
+    "{few_shot} \n\n"
     "#### Anzahl der Sachverhaltselemente #### \n" \
     "In den vorliegenden Dokumenten liegen mindestens {num_factual_elements} Sachverhaltselemente vor. Diese Zahl an Elementen muss mindestens in der Relationstabelle vorkommen." 
 
@@ -56,6 +45,12 @@ def instruction_prompt(num_factual_elements: int) -> str:
     5. Trage die gesammelten Informationen in die Tabelle ein.
 
     """
+    
+    with open("basisdokument_few_shot.md", "r", encoding='utf-8') as md:
+        md_string = md.read()
+
+    # enthält die few-shot Beispiele
+    few_shot = md_string
 
     prompt = PromptTemplate.from_template(prompt_template)
     output = prompt.invoke({"persona": persona,
@@ -66,6 +61,7 @@ def instruction_prompt(num_factual_elements: int) -> str:
                 "tone": tone,
                 "constraints": constraints,
                 "cot_instruction": cot_instruction,
+                "few_shot": few_shot,
                 "num_factual_elements": num_factual_elements})
 
     return output.to_string()
