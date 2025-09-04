@@ -15,7 +15,7 @@ import markdown
 import streamlit.components.v1 as components
 
 # folder for uploaded files
-file_path = "court_files\\flug"
+file_path = "court_files\\unfall"
 
 # Environment variables
 load_dotenv(dotenv_path=".env")
