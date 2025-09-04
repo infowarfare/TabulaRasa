@@ -6,7 +6,7 @@ from google.genai.types import CreateCachedContentConfig, Content, Part
 import time
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
-from prompt import instruction_prompt, factual_elements_prompt
+from prompt import instruction_prompt
 from pathlib import Path
 from collections import Counter
 from markdown_pdf import Section, MarkdownPdf
@@ -15,7 +15,7 @@ import markdown
 import streamlit.components.v1 as components
 
 # folder for uploaded files
-file_path = "court_files"
+file_path = "court_files\\flug"
 
 # Environment variables
 load_dotenv(dotenv_path=".env")
@@ -71,7 +71,7 @@ def upload_files_to_cache(client) -> str:
                 """
             ),
             contents=contents,
-            ttl="300s",
+            ttl="60s",
         )
     )
 
