@@ -19,7 +19,7 @@ file_path = "court_files"
 
 # Environment variables
 load_dotenv(dotenv_path=".env")
-api_key=os.getenv("GOOGLE_API_KEY")
+api_key=st.secrets["GOOGLE_API_KEY"]
 
 def llm_response_to_doc(response: str) -> str:
     file_name = "llm_response.md"
