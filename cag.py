@@ -17,9 +17,13 @@ import streamlit.components.v1 as components
 # folder for uploaded files
 file_path = "court_files\\unfall"
 
-# Environment variables
-load_dotenv(dotenv_path=".env")
-api_key=st.secrets["GOOGLE_API_KEY"]
+# Try to get API key from Streamlit secrets
+if "GOOGLE_API_KEY" in st.secrets:
+    api_key = st.secrets["GOOGLE_API_KEY"]
+else:
+    # Fallback: load .env
+    load_dotenv(dotenv_path=".env")
+    api_key = os.getenv("GOOGLE_API_KEY")
 
 def llm_response_to_doc(response: str) -> str:
     file_name = "llm_response.md"
