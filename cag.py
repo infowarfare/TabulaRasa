@@ -149,7 +149,8 @@ def main():
     if api_key:
         info.empty()
         script_dir = Path(__file__).parent
-        file_path = str(script_dir) + "/" + option
+        if option is not None:
+            file_path = str(script_dir) + "/" + option
 
         exec_button_clicked = st.button("Start Assistant", icon="▶")
         if exec_button_clicked:
