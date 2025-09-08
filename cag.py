@@ -153,7 +153,7 @@ def main():
             placeholder="Select contact method...",
             )
 
-        file_path = "https://raw.githubusercontent.com/" + "infowarfare/TabulaRasa/tree/dev/" + option
+        file_path = "https://github.com/" + "infowarfare/TabulaRasa/tree/dev/" + option
 
         exec_button_clicked = st.button("Start Assistant", icon="▶")
         if exec_button_clicked:
