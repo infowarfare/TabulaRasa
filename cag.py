@@ -130,13 +130,16 @@ def delete_cache(cache_name):
 
 def main():
 
+    st.set_page_config("Chat PDF")
+    st.header("Legal Assistant with Gemini ⚖️")
+    st.sidebar.image("images/tabula_rasa_logo.png", use_container_width=True)
+
     api_key = st.text_input("Enter your API Key:", type="password")
+    info = st.info('Google Gemini API Key needed to proceed', icon="ℹ️")
 
     if api_key:
 
-        st.set_page_config("Chat PDF")
-        st.header("Legal Assistant with Gemini ⚖️")
-        st.sidebar.image("images/tabula_rasa_logo.png", use_container_width=True)
+        info.empty()
 
         option = st.selectbox(
             "Fall Auswahl",
