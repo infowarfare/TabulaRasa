@@ -9,9 +9,9 @@ from langchain_core.messages import HumanMessage
 from prompt import instruction_prompt
 from pathlib import Path
 from collections import Counter
-from markdown_pdf import Section, MarkdownPdf
+
 from pyhtml2pdf import converter
-import markdown
+
 import streamlit.components.v1 as components
 
 # folder for uploaded files
