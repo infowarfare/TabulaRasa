@@ -7,9 +7,14 @@ import time
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
 from prompt import instruction_prompt
+from pathlib import Path
+
 
 # folder for uploaded files
 #file_path = "court_files\\unfall"
+
+# Get current path
+script_dir = str(Path(__file__).parent)
 
 # Try to get API key from Streamlit secrets
 if "GOOGLE_API_KEY" in st.secrets:
@@ -148,7 +153,7 @@ def main():
             placeholder="Select contact method...",
             )
 
-        file_path = option
+        file_path = script_dir + "//" + option
 
 
         exec_button_clicked = st.button("Start Assistant", icon="▶")
