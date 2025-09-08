@@ -137,9 +137,6 @@ def main():
     st.header("Legal Assistant with Gemini ⚖️")
     st.sidebar.image("images/tabula_rasa_logo.png", use_container_width=True)
 
-    api_key = st.text_input("Enter your API Key:", type="password")
-    info = st.info('Google Gemini API Key needed to proceed', icon="ℹ️")
-
     option = st.selectbox(
         "Fall Auswahl",
         ( "court_files/flug","court_files/kita", "court_files/unfall"), # "court_files\\flug", datei fehlerhaft
@@ -147,34 +144,31 @@ def main():
         placeholder="Select contact method...",
         )
     
-    if api_key:
-        info.empty()
-        script_dir = Path(__file__).parent
-        if option is not None:
-            file_path = str(script_dir) + "/" + option
+    
+        
+    script_dir = Path(__file__).parent
+    if option is not None:
+        file_path = str(script_dir) + "/" + option
 
-        cwd = os.getcwd()
-        print(cwd)
-
-        exec_button_clicked = st.button("Start Assistant", icon="▶")
-        if exec_button_clicked:
-            with st.spinner("Start assistant...", show_time=True):
-                client = genai.Client(api_key=api_key)
-                if client:
-                    assistant_message = st.success("Assistant ready!", icon="🙋🏻")
-                    time.sleep(3)
-                    assistant_message.empty()
-            with st.spinner("Sending files to Assistant...", show_time=True):
-                cache= upload_files_to_cache(client, file_path)
-                if cache:
-                    file_message = st.success("Files received!", icon="🗂️")
-                    time.sleep(3)
-                    file_message.empty()
-            with st.spinner("Generate table...", show_time=True):
-                generate_answer(cache.name, client)
-                done_message = st.success("Done!", icon="✅")
+    exec_button_clicked = st.button("Start Assistant", icon="▶")
+    if exec_button_clicked:
+        with st.spinner("Start assistant...", show_time=True):
+            client = genai.Client(api_key=api_key)
+            if client:
+                assistant_message = st.success("Assistant ready!", icon="🙋🏻")
                 time.sleep(3)
-                done_message.empty()
+                assistant_message.empty()
+        with st.spinner("Sending files to Assistant...", show_time=True):
+            cache= upload_files_to_cache(client, file_path)
+            if cache:
+                file_message = st.success("Files received!", icon="🗂️")
+                time.sleep(3)
+                file_message.empty()
+        with st.spinner("Generate table...", show_time=True):
+            generate_answer(cache.name, client)
+            done_message = st.success("Done!", icon="✅")
+            time.sleep(3)
+            done_message.empty()
 
     
 
