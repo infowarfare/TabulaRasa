@@ -79,7 +79,7 @@ def generate_answer(cache_name: str, client) -> str:
 
     #prompt.save("base_prompt.json")
 
-    model_name = "gemini-2.5-flash" #gemini-2.5-flash-lite
+    model_name = "gemini-2.5-flash-lite" #gemini-2.5-flash-lite
     # Query with LangChain
     llm = ChatGoogleGenerativeAI(
         model=model_name,
