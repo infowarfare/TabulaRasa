@@ -171,9 +171,6 @@ def main():
                 time.sleep(3)
                 done_message.empty()
 
-    else:
-        st.warning("Please enter your API key to proceed.")
-
     
 
     
