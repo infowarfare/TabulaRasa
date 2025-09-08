@@ -15,7 +15,7 @@ import markdown
 import streamlit.components.v1 as components
 
 # folder for uploaded files
-file_path = "court_files\\unfall"
+#file_path = "court_files\\unfall"
 
 # Try to get API key from Streamlit secrets
 if "GOOGLE_API_KEY" in st.secrets:
@@ -25,24 +25,8 @@ else:
     load_dotenv(dotenv_path=".env")
     api_key = os.getenv("GOOGLE_API_KEY")
 
-def llm_response_to_doc(response: str) -> str:
-    file_name = "llm_response.md"
-    css_style = "table, th, td {border: 1px solid black;}"
 
-    with open(file_name, "w", encoding="utf-8") as file:
-        file.write(response)
-
-    # Markdown
-    with open(file_name, "r", encoding="utf-8") as f:
-        markdown_text = f.read()
-
-    pdf = MarkdownPdf(toc_level=2, optimize=True)
-    pdf.add_section(Section(markdown_text, paper_size="A4-L"), user_css=css_style)
-
-    pdf.save('output.pdf')
-
-
-def upload_files_to_cache(client) -> str:
+def upload_files_to_cache(client, file_path) -> str:
 
     uploaded_files = []
     parts = []
@@ -75,14 +59,14 @@ def upload_files_to_cache(client) -> str:
                 """
             ),
             contents=contents,
-            ttl="60s",
+            ttl="120s",
         )
     )
 
-    return cache.name
+    return cache
     
 
-def generate_answer(cache_name: str, number_of_responses: int) -> str:
+def generate_answer(cache_name: str, client) -> str:
 
     # prompt_template = """Erstelle aus den gegebenen Inhalten von Klage und Klageerwiderung eine Relationstabelle, wie sie im deutschen Zivilprozess von einem Richter erstellt wird.  
 
@@ -108,46 +92,16 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
         temperature=0 # nahe zu identische Ausgabe
     )
 
-    # factual_prompt = factual_elements_prompt()
-    
-    # elements_found = []
-    # factual_elements_count = 15 # default number
-    # # Self-consistency
-    # for i in range(number_of_responses):
-    #     count_message = HumanMessage(content=factual_prompt)
-    #     response = llm.invoke([count_message])
-    #     number_of_elements = int(response.content)
-    #     elements_found.append(number_of_elements)
 
-    # if elements_found:
-    #     answer_count = Counter(elements_found)
-    #     most_consistent_answer, anzahl = answer_count.most_common(1)[0]
-    #     factual_elements_count = most_consistent_answer
-
-    # Die Prompt erhält eine Vorgabe, wie wieviele Sachverhaltselemente in den Dokumenten gefunden werden sollen. Es handelt sich hierbei um einen heuristischen Wert.     
     prompt = instruction_prompt(num_factual_elements=25)
     message = HumanMessage(content=prompt)
     response = llm.invoke([message])
+
+    
     
     st.write(response.content)
 
-    # CSS: Sidebar, Header, Footer & Buttons beim Drucken ausblenden
-    # hide_streamlit_style = """
-    #     <style>
-    #         @media print {
-    #             /* Sidebar */
-    #             section[data-testid="stSidebar"] {display: none;}
-    #             /* Streamlit Header */
-    #             header[data-testid="stHeader"] {display: none;}
-    #             /* Footer ("Made with Streamlit") */
-    #             footer {display: none;}
-    #             /* Buttons */
-    #             button {display: none;}
-    #         }
-    #     </style>
-    # """
-    # st.markdown(hide_streamlit_style, unsafe_allow_html=True) # header {display: none;}
-
+    
     custom_css = """
     <style>
         @media print {
@@ -161,13 +115,44 @@ def generate_answer(cache_name: str, number_of_responses: int) -> str:
     """
     st.markdown(custom_css, unsafe_allow_html=True)
 
-    #llm_response_to_doc(response.content)
+    # Delete cache after generation
+    delete_cache(cache_name)
 
+    assistant_message = st.success("Assistant reseted!", icon="🙋🏻")
+    time.sleep(3)
+    assistant_message.empty()
+
+
+    
+
+def delete_cache(cache_name):
+    """Löscht einen expliziten GenAI Kontext-Cache."""
+    try:
+        client = genai.Client()
+        client.caches.delete(name=cache_name)
+        st.success(f"Assistant reseted!")
+    except Exception as e:
+        st.error(f"Error deleting cache {e}")
 
 def main():
+
+    # global
+    file_path = ""
+    client = None
+
+    option = st.selectbox(
+        "Fall Auswahl",
+        ( "court_files\\flug","court_files\\kita", "court_files\\unfall"), # "court_files\\flug", datei fehlerhaft
+        index=None,
+        placeholder="Select contact method...",
+        )
+
+    file_path = option
+    
     st.set_page_config("Chat PDF")
     st.header("Legal Assistant with Gemini ⚖️")
     st.sidebar.image("images/tabula_rasa_logo.png", use_container_width=True)
+
 
     exec_button_clicked = st.button("Start Assistant", icon="▶")
     if exec_button_clicked:
@@ -177,33 +162,51 @@ def main():
                 assistant_message = st.success("Assistant ready!", icon="🙋🏻")
                 time.sleep(3)
                 assistant_message.empty()
-         with st.spinner("Sending files to Assistant..."):
-            cache_name = upload_files_to_cache(client)
-            if cache_name:
+         with st.spinner("Sending files to Assistant...", show_time=True):
+            cache= upload_files_to_cache(client, file_path)
+            if cache:
                 file_message = st.success("Files received!", icon="🗂️")
                 time.sleep(3)
                 file_message.empty()
-         with st.spinner("Generate table..."):
-            generate_answer(cache_name, 3)
+         with st.spinner("Generate table...", show_time=True):
+            generate_answer(cache.name, client)
             done_message = st.success("Done!", icon="✅")
             time.sleep(3)
             done_message.empty()
+
+    
+
+    
         
-       
 
-    with st.sidebar:
-        st.title("Menu:")
-        files = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True, type=['pdf']) # pdf only
-        if st.button("Submit & Process"):
-            with st.spinner("Processing..."):
-                for f in files:
-                    save_path = Path(file_path, f.name)
-                    with open(save_path, mode='wb') as file:
-                        file.write(f.getvalue())
+    # with st.sidebar:
+    #     st.title("Menu:")
+        # option = st.selectbox(
+        # "Fall Auswahl",
+        # ("Flugausfall", "Schadensersatz - Kita", "Schadensersatz - Unfall"),
+        # index=None,
+        # placeholder="Select contact method...",
+        # )
 
-                    if save_path.exists():
-                        st.success("Files successfully saved!")
-                st.success("Done")
+        # if option == "Flugausfall":
+        #     file_path = "court_files\\flug"
+        # elif option == "Schadensersatz - Kita":
+        #     file_path = "court_files\\kita"
+        # elif option == "Schadensersatz - Unfall":
+        #     file_path == "court_files\\unfall"
+
+        # st.write("You selected:", option)
+        # files = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True, type=['pdf']) # pdf only
+        # if st.button("Submit & Process"):
+        #     with st.spinner("Processing..."):
+        #         for f in files:
+        #             save_path = Path(file_path, f.name)
+        #             with open(save_path, mode='wb') as file:
+        #                 file.write(f.getvalue())
+
+        #             if save_path.exists():
+        #                 st.success("Files successfully saved!")
+        #         st.success("Done")
 
 
 
