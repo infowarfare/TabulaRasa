@@ -153,7 +153,7 @@ def main():
             placeholder="Select contact method...",
             )
 
-        file_path = "./" + option
+        file_path = "/mount/src/tabularasa/" + option
 
         exec_button_clicked = st.button("Start Assistant", icon="▶")
         if exec_button_clicked:
