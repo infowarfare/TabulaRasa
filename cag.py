@@ -13,9 +13,6 @@ from pathlib import Path
 # folder for uploaded files
 #file_path = "court_files\\unfall"
 
-# Get current path
-script_dir = Path(__file__).parent
-
 # Try to get API key from Streamlit secrets
 if "GOOGLE_API_KEY" in st.secrets:
     api_key = st.secrets["GOOGLE_API_KEY"]
@@ -144,6 +141,10 @@ def main():
 
     if api_key:
 
+        # default value, absolute hack
+        option = "court_file/flug"
+        
+
         info.empty()
 
         option = st.selectbox(
@@ -152,7 +153,7 @@ def main():
             index=None,
             placeholder="Select contact method...",
             )
-
+        script_dir = Path(__file__).parent
         file_path = str(script_dir) + "/" + option
 
         exec_button_clicked = st.button("Start Assistant", icon="▶")
