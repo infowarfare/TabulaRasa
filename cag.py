@@ -139,20 +139,15 @@ def main():
     api_key = st.text_input("Enter your API Key:", type="password")
     info = st.info('Google Gemini API Key needed to proceed', icon="ℹ️")
 
+    option = st.selectbox(
+        "Fall Auswahl",
+        ( "court_files/flug","court_files/kita", "court_files/unfall"), # "court_files\\flug", datei fehlerhaft
+        index=None,
+        placeholder="Select contact method...",
+        )
+    
     if api_key:
-
-        # default value, absolute hack
-        option = "court_file/flug"
-        
-
         info.empty()
-
-        option = st.selectbox(
-            "Fall Auswahl",
-            ( "court_files/flug","court_files/kita", "court_files/unfall"), # "court_files\\flug", datei fehlerhaft
-            index=None,
-            placeholder="Select contact method...",
-            )
         script_dir = Path(__file__).parent
         file_path = str(script_dir) + "/" + option
 
