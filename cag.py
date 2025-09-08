@@ -7,12 +7,6 @@ import time
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
 from prompt import instruction_prompt
-from pathlib import Path
-from collections import Counter
-
-from pyhtml2pdf import converter
-
-import streamlit.components.v1 as components
 
 # folder for uploaded files
 #file_path = "court_files\\unfall"
