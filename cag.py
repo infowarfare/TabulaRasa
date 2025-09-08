@@ -84,6 +84,7 @@ def generate_answer(cache_name: str, client) -> str:
     llm = ChatGoogleGenerativeAI(
         model=model_name,
         cached_content=cache_name,
+        timeout = 300.0,
         top_k=1,
         temperature=0 # nahe zu identische Ausgabe
     )
