@@ -148,13 +148,12 @@ def main():
 
         option = st.selectbox(
             "Fall Auswahl",
-            ( "court_files\\flug","court_files\\kita", "court_files\\unfall"), # "court_files\\flug", datei fehlerhaft
+            ( "court_files/flug","court_files/kita", "court_files/unfall"), # "court_files\\flug", datei fehlerhaft
             index=None,
             placeholder="Select contact method...",
             )
 
-        file_path = script_dir + "\\" + option
-
+        file_path = "https://raw.githubusercontent.com/" + "infowarfare/TabulaRasa/tree/dev/" + option
 
         exec_button_clicked = st.button("Start Assistant", icon="▶")
         if exec_button_clicked:
