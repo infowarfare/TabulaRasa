@@ -1,3 +1,4 @@
+
 import os
 import streamlit as st
 from dotenv import load_dotenv
@@ -13,6 +14,12 @@ from pathlib import Path
 # folder for uploaded files
 #file_path = "court_files\\unfall"
 
+gemini_string = "gemini-2.5-flash-lite"
+g3mma_string = "gemma-3-27b"
+
+if "model_name" not in st.session_state:
+    st.session_state.model_name = ""
+
 # Try to get API key from Streamlit secrets
 if "GOOGLE_API_KEY" in st.secrets:
     api_key = st.secrets["GOOGLE_API_KEY"]
@@ -20,6 +27,15 @@ else:
     # Fallback: load .env
     load_dotenv(dotenv_path=".env")
     api_key = os.getenv("GOOGLE_API_KEY")
+
+
+def model_change():
+    if st.session_state.model_key == "g3mma":
+        st.session_state.model_name = g3mma_string
+    elif st.session_state.model_key == "Gemini":
+        st.session_state.model_name = gemini_string
+    print(st.session_state.model_name+" <- model name in model change function")
+    
 
 
 def upload_files_to_cache(client, file_path) -> str:
@@ -41,10 +57,11 @@ def upload_files_to_cache(client, file_path) -> str:
         parts.append(Part.from_uri(file_uri=client_file.uri, mime_type=client_file.mime_type))
 
     contents = [Content(role="user", parts=parts,)]
-
-    model_name = "gemini-2.5-flash-lite"
+    print(st.session_state.model_name+" <- model name in upload files to cache function")
+    #model_name = "gemini-2.5-flash-lite"
     cache = client.caches.create(
-        model=model_name,
+        
+        model= st.session_state.model_name,
         config=CreateCachedContentConfig(
             display_name='cached_documents',
             system_instruction=(
@@ -62,7 +79,7 @@ def upload_files_to_cache(client, file_path) -> str:
     return cache
     
 
-def generate_answer(cache_name: str, client) -> str:
+def generate_answer(client, cache_name="") -> str:
 
     # prompt_template = """Erstelle aus den gegebenen Inhalten von Klage und Klageerwiderung eine Relationstabelle, wie sie im deutschen Zivilprozess von einem Richter erstellt wird.  
 
@@ -79,20 +96,33 @@ def generate_answer(cache_name: str, client) -> str:
 
     #prompt.save("base_prompt.json")
 
-    model_name = "gemini-2.5-flash-lite" #gemini-2.5-flash-lite
+    #model_name = "gemini-2.5-flash-lite" #gemini-2.5-flash-lite
     # Query with LangChain
-    llm = ChatGoogleGenerativeAI(
-        model=model_name,
-        cached_content=cache_name,
-        timeout = 300.0,
-        top_k=1,
-        temperature=0 # nahe zu identische Ausgabe
-    )
+    response = None
+    print(st.session_state.model_name+" <- model name in generate answer function")
+    if cache_name == "":
+        genai.Client(api_key=st.secrets["GOOGLE_API_KEY"])
+        prompt = instruction_prompt(num_factual_elements=25)
+        message = HumanMessage(content=prompt)
+        response = client.models.generate_content(
+            model="gemma-3-27b-it",
+            contents=message,
+        )
+
+    elif cache_name != "":
+        llm = ChatGoogleGenerativeAI(
+            model= st.session_state.model_name,
+            cached_content=cache_name,
+            timeout = 300.0,
+            top_k=1,
+            temperature=0 # nahe zu identische Ausgabe
+        )
+        prompt = instruction_prompt(num_factual_elements=25)
+        message = HumanMessage(content=prompt)
+        response = llm.invoke([message])
 
 
-    prompt = instruction_prompt(num_factual_elements=25)
-    message = HumanMessage(content=prompt)
-    response = llm.invoke([message])
+    
 
     
     
@@ -141,11 +171,21 @@ def main():
     info = st.info('Google Gemini API Key needed to proceed', icon="ℹ️")
 
     option = st.selectbox(
+        "Modell Auswahl",
+        ( "Gemini","g3mma"),
+        index=None,
+        placeholder="Select model...",
+        key="model_key",
+        on_change=model_change
+        )
+
+    option = st.selectbox(
         "Fall Auswahl",
         ( "court_files/flug","court_files/kita", "court_files/unfall"), # "court_files\\flug", datei fehlerhaft
         index=None,
         placeholder="Select contact method...",
         )
+    
     
     if api_key:
         info.empty()
@@ -164,17 +204,24 @@ def main():
                     assistant_message = st.success("Assistant ready!", icon="🙋🏻")
                     time.sleep(3)
                     assistant_message.empty()
-            with st.spinner("Sending files to Assistant...", show_time=True):
-                cache= upload_files_to_cache(client, file_path)
-                if cache:
-                    file_message = st.success("Files received!", icon="🗂️")
+            if st.session_state.model_name == "gemini-2.5-flash-lite":
+                with st.spinner("Sending files to Assistant...", show_time=True):
+                    cache= upload_files_to_cache(client, file_path)
+                    if cache:
+                        file_message = st.success("Files received!", icon="🗂️")
+                        time.sleep(3)
+                        file_message.empty()
+                with st.spinner("Generate table...", show_time=True):
+                    generate_answer(client, cache.name)
+                    done_message = st.success("Done!", icon="✅")
                     time.sleep(3)
-                    file_message.empty()
-            with st.spinner("Generate table...", show_time=True):
-                generate_answer(cache.name, client)
-                done_message = st.success("Done!", icon="✅")
-                time.sleep(3)
-                done_message.empty()
+                    done_message.empty()
+            elif st.session_state.model_name == "gemma-3-27b":
+                with st.spinner("Generate table...", show_time=True):
+                    generate_answer(client)
+                    done_message = st.success("Done!", icon="✅")
+                    time.sleep(3)
+                    done_message.empty()
 
     
 
