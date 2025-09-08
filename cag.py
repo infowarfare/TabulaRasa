@@ -141,7 +141,7 @@ def main():
         "Fall Auswahl",
         ( "court_files/flug","court_files/kita", "court_files/unfall"), # "court_files\\flug", datei fehlerhaft
         index=None,
-        placeholder="Select contact method...",
+        placeholder="Select court case...",
         )
     
     
