@@ -152,6 +152,9 @@ def main():
         if option is not None:
             file_path = str(script_dir) + "/" + option
 
+        cwd = os.getcwd()
+        print(cwd)
+
         exec_button_clicked = st.button("Start Assistant", icon="▶")
         if exec_button_clicked:
             with st.spinner("Start assistant...", show_time=True):
