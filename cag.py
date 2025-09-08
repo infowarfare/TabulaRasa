@@ -153,7 +153,7 @@ def main():
             placeholder="Select contact method...",
             )
 
-        file_path = script_dir + "//" + option
+        file_path = script_dir + "\\" + option
 
 
         exec_button_clicked = st.button("Start Assistant", icon="▶")
