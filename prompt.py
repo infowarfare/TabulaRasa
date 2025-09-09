@@ -179,6 +179,8 @@ def instruction_prompt(num_factual_elements: int) -> str:
     return output.to_string()
 
 def print_prompt() -> None:
-    with open("prompt.txt", "w", encoding="utf-8") as file:
+    with open("prompt_v1.txt", "w", encoding="utf-8") as file:
         prompt = instruction_prompt(num_factual_elements=25)
         file.write(prompt)
+
+print_prompt()
