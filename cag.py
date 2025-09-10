@@ -32,10 +32,10 @@ def model_change():
 
     if st.session_state.model_key == "Gemini-2.5-flash-lite":
         st.session_state.model_name = flash_model_name
-        st.badge("2.5-flash-lite",icon="🤖", color="green")
+        
     elif st.session_state.model_key == "Gemini-2.5-pro":
         st.session_state.model_name = pro_model_name
-        st.badge("2.5-pro",icon="🤖" , color="green")
+        
     print(st.session_state.model_name+" <- model name in model change function")
     
 
@@ -152,17 +152,17 @@ def delete_cache(cache_name):
 def main():
 
     st.set_page_config("Chat PDF")
-    pre_head = st.header("Legal Assistant with Gemini ⚖️")
+    st.header("Legal Assistant with Gemini ⚖️")
     st.sidebar.image("images/tabula_rasa_logo.png", use_container_width=True)
 
-    # option = st.selectbox(
-    #     "Modell Auswahl",
-    #     ( "Gemini-2.5-flash-lite","Gemini-2.5-pro"),
-    #     index=None,
-    #     placeholder="Select model...",
-    #     key="model_key",
-    #     on_change=model_change,
-    #     )
+    option = st.selectbox(
+        "Modell Auswahl",
+        ( "Gemini-2.5-flash-lite","Gemini-2.5-pro"),
+        index=None,
+        placeholder="Select model...",
+        key="model_key",
+        on_change=model_change,
+        )
 
     option = st.selectbox(
         "Fall Auswahl",
