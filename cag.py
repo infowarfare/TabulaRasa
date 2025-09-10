@@ -12,6 +12,12 @@ from pathlib import Path
 
 # folder for uploaded files
 #file_path = "court_files\\unfall"
+flash_model_name = "gemini-2.5-flash-lite"
+pro_model_name = "gemini-2.5-pro"
+
+if "model_name" not in st.session_state:
+    st.session_state.model_name = ""
+
 
 # Try to get API key from Streamlit secrets
 if "GOOGLE_API_KEY" in st.secrets:
@@ -20,6 +26,18 @@ else:
     # Fallback: load .env
     load_dotenv(dotenv_path=".env")
     api_key = os.getenv("GOOGLE_API_KEY")
+
+
+def model_change():
+
+    if st.session_state.model_key == "Gemini-2.5-flash-lite":
+        st.session_state.model_name = flash_model_name
+        st.badge("2.5-flash-lite",icon="🤖", color="green")
+    elif st.session_state.model_key == "Gemini-2.5-pro":
+        st.session_state.model_name = pro_model_name
+        st.badge("2.5-pro",icon="🤖" , color="green")
+    print(st.session_state.model_name+" <- model name in model change function")
+    
 
 
 def upload_files_to_cache(client, file_path) -> str:
@@ -42,7 +60,7 @@ def upload_files_to_cache(client, file_path) -> str:
 
     contents = [Content(role="user", parts=parts,)]
 
-    model_name = "gemini-2.5-flash-lite"
+    model_name = st.session_state.model_name
     cache = client.caches.create(
         model=model_name,
         config=CreateCachedContentConfig(
@@ -55,7 +73,7 @@ def upload_files_to_cache(client, file_path) -> str:
                 """
             ),
             contents=contents,
-            ttl="120s",
+            ttl="600s",
         )
     )
 
@@ -79,7 +97,7 @@ def generate_answer(cache_name: str, client) -> str:
 
     #prompt.save("base_prompt.json")
 
-    model_name = "gemini-2.5-flash-lite" #gemini-2.5-flash-lite
+    model_name = st.session_state.model_name #gemini-2.5-flash-lite
     # Query with LangChain
     llm = ChatGoogleGenerativeAI(
         model=model_name,
@@ -134,8 +152,17 @@ def delete_cache(cache_name):
 def main():
 
     st.set_page_config("Chat PDF")
-    st.header("Legal Assistant with Gemini ⚖️")
+    pre_head = st.header("Legal Assistant with Gemini ⚖️")
     st.sidebar.image("images/tabula_rasa_logo.png", use_container_width=True)
+
+    # option = st.selectbox(
+    #     "Modell Auswahl",
+    #     ( "Gemini-2.5-flash-lite","Gemini-2.5-pro"),
+    #     index=None,
+    #     placeholder="Select model...",
+    #     key="model_key",
+    #     on_change=model_change,
+    #     )
 
     option = st.selectbox(
         "Fall Auswahl",
