@@ -73,7 +73,7 @@ def upload_files_to_cache(client, file_path) -> str:
                 """
             ),
             contents=contents,
-            ttl="600s",
+            ttl="1800s",
         )
     )
 
