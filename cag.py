@@ -197,41 +197,6 @@ def main():
             time.sleep(3)
             done_message.empty()
 
-    
-
-    
-        
-
-    # with st.sidebar:
-    #     st.title("Menu:")
-        # option = st.selectbox(
-        # "Fall Auswahl",
-        # ("Flugausfall", "Schadensersatz - Kita", "Schadensersatz - Unfall"),
-        # index=None,
-        # placeholder="Select contact method...",
-        # )
-
-        # if option == "Flugausfall":
-        #     file_path = "court_files\\flug"
-        # elif option == "Schadensersatz - Kita":
-        #     file_path = "court_files\\kita"
-        # elif option == "Schadensersatz - Unfall":
-        #     file_path == "court_files\\unfall"
-
-        # st.write("You selected:", option)
-        # files = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True, type=['pdf']) # pdf only
-        # if st.button("Submit & Process"):
-        #     with st.spinner("Processing..."):
-        #         for f in files:
-        #             save_path = Path(file_path, f.name)
-        #             with open(save_path, mode='wb') as file:
-        #                 file.write(f.getvalue())
-
-        #             if save_path.exists():
-        #                 st.success("Files successfully saved!")
-        #         st.success("Done")
-
-
 
 if __name__ == "__main__":
     main()
