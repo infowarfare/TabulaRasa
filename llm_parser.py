@@ -30,3 +30,7 @@ class Sachverhaltselement(BaseModel):
     defendant_document_passage: Optional[str] = Field(description="Die wörtliche Passage aus dem Dokument, die den Beklagten-Vortrag belegt, falls vorhanden. Ansonsten None.", default=None)
     attachment_defendant: Optional[str] = Field(description="Die Anlagen (Anlage Bx) des Beklagten zu diesem Element, falls vorhanden. Ansonsten None.", default=None)
 
+# Load llm response as string from text file
+with open("llm_generated_response.txt", "r", encoding="utf-8") as file:
+    file_content = file.read()
+    print(file_content)
