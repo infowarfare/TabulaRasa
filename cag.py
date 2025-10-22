@@ -112,6 +112,10 @@ def generate_answer(cache_name: str, client) -> str:
     message = HumanMessage(content=prompt)
     response = llm.invoke([message])
 
+    # write response for analysis
+    with open("llm_generated_response.txt", "w", encoding="utf-8") as f:
+        f.write(response.content)
+
     
     
     st.write(response.content)
