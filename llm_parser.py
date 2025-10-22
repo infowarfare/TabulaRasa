@@ -1,17 +1,17 @@
 import os
+import sys
 import json
+import getpass
 from dotenv import load_dotenv
 from typing import List, Optional
-
 from pydantic import BaseModel, Field
-
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.prompts import ChatPromptTemplate
-from langchain.output_parsers import PydanticOutputParser
+from google import genai
+from google.genai import types
+from google.genai.errors import APIError
 
 # Load .env variables
 load_dotenv(dotenv_path=".env")
-api_key = os.getenv("GOOGLE_API_KEY")
+
 
 class Sachverhaltselement(BaseModel):
     """
@@ -33,4 +33,7 @@ class Sachverhaltselement(BaseModel):
 # Load llm response as string from text file
 with open("llm_generated_response.txt", "r", encoding="utf-8") as file:
     file_content = file.read()
-    print(file_content)
+    
+
+
+    
