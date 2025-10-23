@@ -9,7 +9,7 @@ plaintiff_list = []
 defendant_list = []
 
 # iterate through list
-for dict in doc:
+for d in doc:
 
     # create empty dicts
     plaintiff_dict = dict.fromkeys["Kläger-Vortrag", "Kläger-Passage"]
@@ -17,8 +17,8 @@ for dict in doc:
     
     # get relevant keys
     # kläger-vortrag - kläger-dokument passage
-    argument_plaintiff = dict['Kläger-Vortrag']
-    document_passage_plaintiff = dict['Kläger-Dokument Passage']
+    argument_plaintiff = d['Kläger-Vortrag']
+    document_passage_plaintiff = d['Kläger-Dokument Passage']
 
     # only existing arguments and corresponding passages
     if argument_plaintiff != ' - ' and document_passage_plaintiff != ' - ':
@@ -32,8 +32,8 @@ for dict in doc:
 
 
     # beklagter-vortrag - beklagter-dokument passage
-    argument_defendant = dict['Beklagter-Vortrag']
-    document_passage_defendant = dict['Beklagter-Dokument Passage']
+    argument_defendant = d['Beklagter-Vortrag']
+    document_passage_defendant = d['Beklagter-Dokument Passage']
 
     if argument_defendant != ' - ' and document_passage_defendant != ' - ':
         print(f"Beklagtervortrag: {argument_defendant} : Passage {document_passage_defendant}")
@@ -42,7 +42,7 @@ for dict in doc:
         defendant_dict["Kläger-Vortrag"] = argument_defendant
         defendant_dict["Kläger-Passage"] = document_passage_defendant
 
-        plaintiff_list.append(defendant_dict)
+        defendant_list.append(defendant_dict)
 
     
 
