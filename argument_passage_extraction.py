@@ -45,11 +45,9 @@ for d in doc:
         defendant_list.append(defendant_dict)
 
 
-print("###### BEKLAGTER ######")
-for d in defendant_list:
-    print(d)
 
-    
+
+
 
 
 
