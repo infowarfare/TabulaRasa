@@ -45,7 +45,12 @@ for d in doc:
         defendant_list.append(defendant_dict)
 
 
+# Save to json files
+with open("defendant.json", "w", encoding="utf-8") as file:
+    json.dump(defendant_list, file, ensure_ascii=False, indent=2)
 
+with open("plaintiff.json", "w", encoding="utf-8") as file:
+    json.dump(plaintiff_list, file, ensure_ascii=False, indent=2)
 
 
 
